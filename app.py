@@ -1,7 +1,9 @@
+
 from flask import Flask,jsonify,request
 usersVote={}
 
 app= Flask(__name__)
+
 
 @app.route("/")
 def home_action():
@@ -10,6 +12,7 @@ def home_action():
 @app.route("/health")
 def health_function():
     return "App is running"
+
 
 @app.get("/vote/<name>")
 def voting(name):
@@ -26,6 +29,7 @@ def votingResult():
     if len(usersVote.keys()) == 0:
         return "Not vote has been casted"    
     return usersVote
+
 
 if __name__ == "__main__":
     app.run(debug = True)
